@@ -15,7 +15,7 @@ if [ ! -d $PROJECT/storage ]; then
     exit 1
 fi
 
-gity --version 2>&1 >/dev/null
+git --version 2>&1 >/dev/null
 GIT_IS_AVAILABLE=$?
 if [ ! $GIT_IS_AVAILABLE -eq 0 ]; then
     echo "ERROR: The program 'git' is currently not installed."
