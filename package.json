@@ -22,6 +22,6 @@
     "docker.prune": "./scripts/docker/prune.sh"
   },
   "scripts": {
-    "pub": "npm version patch; npm publish"
+    "publish": "npm version patch; npm publish"
   }
 }
