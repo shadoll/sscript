@@ -1,6 +1,6 @@
 {
   "name": "sscripts",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Useful Shell scripts for projects",
   "author": "sHa <sha@shadoll.dev>",
   "license": "MIT",
@@ -15,6 +15,7 @@
     "hello.sh": "./scripts/hello.sh",
     "hello.js": "./scripts/hello.js",
     "git.storage_push": "./scripts/git/storage_push.sh",
+    "git.submodule_pull": "./scripts/git/submodule_pull.sh",
     "fs.fix_permissions": "./scripts/fs/fix_permissions.sh",
     "docker.up": "./scripts/docker/up.sh",
     "docker.down": "./scripts/docker/down.sh",

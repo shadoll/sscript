@@ -33,7 +33,7 @@ yarn
 Upload all changes in storage folder into git repository
 
 ### submodule_pull
-
+Update git submodules
 
 ## 📁 File system
 

@@ -28,4 +28,12 @@ cd $PROJECT/storage
 
 git add . --all &&
 git commit -m "storage"
-git push origin master --force
+
+if [ -f $PROJECT/docker/.ssh/id_rsa ]; then
+    if [ `stat -c %a $PROJECT/docker/.ssh/id_rsa` -ne '600' ]; then
+        chmod -R a=rwX,go-rwX $PROJECT/docker/.ssh
+    fi
+    ssh-agent sh -c "ssh-add -D; ssh-add $PROJECT/docker/.ssh/id_rsa; git push origin master --force"
+else
+    git push origin master --force
+fi
