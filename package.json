@@ -7,6 +7,10 @@
   },
   "author": "sHa <sha@shadoll.dev>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shadoll/sscript.git"
+  },
   "bin": {
     "hello.sh": "./scripts/hello.sh",
     "hello.js": "./scripts/hello.js"
