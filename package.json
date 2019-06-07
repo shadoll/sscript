@@ -1,6 +1,6 @@
 {
   "name": "sscripts",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Useful Shell scripts for projects",
   "author": "sHa <sha@shadoll.dev>",
   "license": "MIT",
@@ -14,11 +14,13 @@
   "bin": {
     "hello.sh": "./scripts/hello.sh",
     "hello.js": "./scripts/hello.js",
-    "git.storage_push": "./scripts/git.storage_push.sh"
+    "git.storage_push": "./scripts/git/storage_push.sh",
+    "fs.fix_permissions": "./scripts/fs/fix_permissions.sh"
   },
   "scripts": {
     "hello.sh": "./scripts/hello.sh",
     "hello.js": "./scripts/hello.js",
-    "git.storage_push": "./scripts/git.storage_push.sh"
+    "git.storage_push": "./scripts/git/storage_push.sh",
+    "fs.fix_permissions": "./scripts/fs/fix_permissions.sh"
   }
 }

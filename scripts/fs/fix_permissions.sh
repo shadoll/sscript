@@ -7,10 +7,14 @@
 # @link      https://shadoll.dev
 #
 
-DIR=$(dirname "$0")
-ROOT=$(cd "$DIR"/.. && pwd)
+DIR=$(dirname $BASH_SOURCE)
+PROJECT=(${DIR//node_modules/ })
 
-sudo chmod -R a=rwX,go-rwX "$ROOT"/docker/.ssh/
+ROOT=$(cd "$PROJECT"/.. && pwd)
 
 sudo chown -R :www-data $ROOT
 sudo chmod -R g+rwX $ROOT
+
+if [ -d $ROOT/docker/.ssh/]; then
+    sudo chmod -R a=rwX,go-rwX "$ROOT"/docker/.ssh/
+fi
