@@ -9,4 +9,13 @@
 
 # appname=$(awk -F'=' '/^APPNAME/ { print $2}' ./docker/.env)
 
+DIR=$(dirname $BASH_SOURCE)
+PROJECT=(${DIR//node_modules/ })
+
+if [ ! -f $PROJECT/docker-compose.yml ]; then
+    echo "ERROR: '$PROJECT/docker-compose.yml' file not found"
+    exit 1
+fi
+
+cd $PROJECT
 docker-compose exec app npm "$@"

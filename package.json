@@ -19,9 +19,20 @@
     "fs.fix_permissions": "./scripts/fs/fix_permissions.sh",
     "docker.up": "./scripts/docker/up.sh",
     "docker.down": "./scripts/docker/down.sh",
-    "docker.prune": "./scripts/docker/prune.sh"
+    "docker.prune": "./scripts/docker/prune.sh",
+    "app.artisan": "./scripts/app/artisan.sh",
+    "app.composer": "./scripts/app/composer.sh",
+    "app.git": "./scripts/app/git.sh",
+    "app.npm": "./scripts/app/npm.sh",
+    "app.yarn": "./scripts/app/yarn.sh",
+    "app.php": "./scripts/app/php.sh",
+    "db.mysql": "./scripts/db/mysql.sh",
+    "db.dump": "./scripts/db/dump.sh",
+    "db.restore": "./scripts/db/restore.sh"
   },
   "scripts": {
-    "publ": "npm version patch; git add *; git commit -mUpdate; git push; npm publish"
+    "pub_stage1": "git add * && git commit -mUpdate",
+    "pub_stage2": "npm version patch && && git commit -mUpdate && git push",
+    "pub_stage3": "npm publish"
   }
 }
