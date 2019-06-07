@@ -1,6 +1,6 @@
 {
   "name": "sscripts",
-  "version": "1.0.10",
+  "version": "1.0.9",
   "description": "Useful Shell scripts for projects",
   "author": "sHa <sha@shadoll.dev>",
   "license": "MIT",
@@ -22,9 +22,6 @@
     "docker.prune": "./scripts/docker/prune.sh"
   },
   "scripts": {
-    "hello.sh": "./scripts/hello.sh",
-    "hello.js": "./scripts/hello.js",
-    "git.storage_push": "./scripts/git/storage_push.sh",
-    "fs.fix_permissions": "./scripts/fs/fix_permissions.sh"
+    "pub": "npm version patch; npm publish"
   }
 }
