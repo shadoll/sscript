@@ -11,6 +11,9 @@
     "type": "git",
     "url": "https://github.com/shadoll/sscript.git"
   },
+  "bugs": {
+    "url": "https://github.com/shadoll/sscript/issues"
+  },
   "bin": {
     "hello.sh": "./scripts/hello.sh",
     "hello.js": "./scripts/hello.js"
