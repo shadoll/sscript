@@ -7,4 +7,7 @@
 # @link      https://shadoll.dev
 #
 
-docker-compose up -d "$@"
+DIR=$(dirname $BASH_SOURCE)
+PROJECT=(${DIR//node_modules/ })
+
+docker system prune -f

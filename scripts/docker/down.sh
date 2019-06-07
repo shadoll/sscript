@@ -10,11 +10,10 @@
 DIR=$(dirname $BASH_SOURCE)
 PROJECT=(${DIR//node_modules/ })
 
-ROOT=$(cd "$PROJECT"/.. && pwd)
-
-sudo chown -R :www-data $ROOT
-sudo chmod -R g+rwX $ROOT
-
-if [ -d $ROOT/docker/.ssh/ ]; then
-    sudo chmod -R a=rwX,go-rwX "$ROOT"/docker/.ssh/
+if [ ! -f $PROJECT/docker-compose.yml ]; then
+    echo "ERROR: '$PROJECT/docker-compose.yml' file not found"
+    exit 1
 fi
+
+cd $PROJECT
+docker-compose down "$@"
