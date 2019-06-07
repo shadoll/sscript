@@ -25,16 +25,16 @@ yarn
 
 `yarn {script_name}`
 
-# Scripts
+# 🗄Scripts
 
-## git
+## 📁git
 
-### storage_push
+### 📜storage_push
 Upload all changes in storage folder into git repository
 
-### submodule_pull
+### 📜submodule_pull
 
 
-## file system
+## 📁file system
 
-### fix_permissions
+### 📜fix_permissions
