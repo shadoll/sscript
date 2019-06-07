@@ -1,10 +1,7 @@
 {
   "name": "sscripts",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Useful Shell scripts for projects",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "sHa <sha@shadoll.dev>",
   "license": "MIT",
   "repository": {
@@ -16,6 +13,12 @@
   },
   "bin": {
     "hello.sh": "./scripts/hello.sh",
-    "hello.js": "./scripts/hello.js"
+    "hello.js": "./scripts/hello.js",
+    "git.storage_push": "./scripts/git.storage_push.sh"
+  },
+  "scripts": {
+    "hello.sh": "./scripts/hello.sh",
+    "hello.js": "./scripts/hello.js",
+    "git.storage_push": "./scripts/git.storage_push.sh"
   }
 }
