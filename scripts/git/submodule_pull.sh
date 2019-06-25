@@ -3,7 +3,7 @@
 # @package   sscripts
 # @author    sHa <sha@shadoll.dev>
 # @copyright 2019 shadoll
-# @version   19.6.7
+# @version   19.6.25
 # @link      https://shadoll.dev
 #
 
@@ -20,10 +20,10 @@ fi
 
 git submodule init
 if [ -f $PROJECT/docker/.ssh/id_rsa ]; then
-    if [ `stat -c %a $PROJECT/docker/.ssh/id_rsa` -ne '600' ]; then
-        chmod -R a=rwX,go-rwX $PROJECT/docker/.ssh
+    if [ `stat -c %a $PROJECT'docker/.ssh/id_rsa'` -ne '600' ]; then
+        chmod -R a=rwX,go-rwX $PROJECT'docker/.ssh'
     fi
-    ssh-agent sh -c "ssh-add -D; ssh-add $ROOT/docker/.ssh/id_rsa; git submodule update"
+    ssh-agent sh -c "ssh-add -D; ssh-add $PROJECT'docker/.ssh/id_rsa'; git submodule update"
 else
     git submodule update
 fi
