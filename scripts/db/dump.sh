@@ -17,7 +17,7 @@ fi
 
 cd $PROJECT
 
-DATABASE=$(awk -F'=' '/^MYSQL_DATABASE/ { print $2}' $PROJECT/docker/config.env)
-PWD=$(awk -F'=' '/^MYSQL_ROOT_PASSWORD/ { print $2}' $PROJECT/docker/config.env)
+DATABASE=$(awk -F'=' '/^DB_DATABASE/ { print $2}' $PROJECT/.env)
+PWD=$(awk -F'=' '/^DB_ROOT_PASSWORD/ { print $2}' $PROJECT/.env)
 
 docker-compose exec db /usr/bin/mysqldump --skip-comments -uroot --password=$PWD $DATABASE > $PROJECT/storage/database/dump/database.sql 2>/dev/null
