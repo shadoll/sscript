@@ -18,5 +18,7 @@ fi
 cd $PROJECT
 
 HOST=$(awk -F'=' '/^DB_HOST/ { print $2}' $PROJECT/.env)
+USR=$(awk -F'=' '/^DB_USERNAME/ { print $2}' $PROJECT/.env)
+PWD=$(awk -F'=' '/^DB_PASSWORD/ { print $2}' $PROJECT/.env)
 
-docker-compose exec $HOST mysql "$@"
+docker-compose exec $HOST mysql -u$USR --password=$PWD $DATABASE "$@"

@@ -18,7 +18,8 @@ fi
 cd $PROJECT
 
 DATABASE=$(awk -F'=' '/^DB_DATABASE/ { print $2}' $PROJECT/.env)
-PWD=$(awk -F'=' '/^DB_ROOT_PASSWORD/ { print $2}' $PROJECT/.env)
+USR=$(awk -F'=' '/^DB_USERNAME/ { print $2}' $PROJECT/.env)
+PWD=$(awk -F'=' '/^DB_PASSWORD/ { print $2}' $PROJECT/.env)
 HOST=$(awk -F'=' '/^DB_HOST/ { print $2}' $PROJECT/.env)
 
-docker-compose exec $HOST /usr/bin/mysql -uroot --password=$PWD $DATABASE < $PROJECT/storage/database/dump/database.sql
+docker-compose exec $HOST /usr/bin/mysql -u$USR --password=$PWD $DATABASE < $PROJECT/storage/database/dump/database.sql
