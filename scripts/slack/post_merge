@@ -1,0 +1,32 @@
+#!/bin/sh
+#
+# @category  Boxes
+# @package   git scripts
+# @author    sHa <sha@shadoll.dev>
+# @copyright 2019 Fabrika-Klientov
+# @version   19.9.26
+# @link      https://fabrika-klientov.ua
+
+DIR=`dirname "$(readlink -f "$0")"`
+DIR=${DIR%/*}
+if [ "${DIR##*/}" = ".git" ]; then
+    DIR=${DIR%/*}
+fi
+
+HOST=`hostname`
+USER=`whoami`
+REPO=$(basename -s .git `git config --get remote.origin.url`)
+BRANCH=`git branch | grep \* | cut -d ' ' -f2`
+
+[ -f $DIR/.env ] && CHANNEL=$(grep -e '^SLACK_CHANNEL=.*' $DIR/.env | cut -d '=' -f2)
+[ -z "$CHANNEL" ] && CHANNEL="general"
+
+[ -f $DIR/.env ] && TOKEN=$(grep -e '^SLACK_TOKEN=.*' $DIR/.env | cut -d '=' -f2)
+#[ -z "$TOKEN" ] && TOKEN=""
+
+[ -f $DIR/.env ] && APP=$(grep -e '^APP_NAME=.*' $DIR/.env | cut -d '=' -f2)
+[ -z "$APP" ] && APP="App"
+
+if [ "$TOKEN" ]; then
+    curl -X GET --get --data-urlencode "text=*$APP⎇$BRANCH* merged on $USER@$HOST" 'https://slack.com/api/chat.postMessage?token='$TOKEN'&channel='$CHANNEL
+fi

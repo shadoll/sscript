@@ -22,5 +22,4 @@ USR=$(awk -F'=' '/^DB_USERNAME/ { print $2}' $PROJECT/.env)
 PWD=$(awk -F'=' '/^DB_PASSWORD/ { print $2}' $PROJECT/.env)
 HOST=$(awk -F'=' '/^DB_HOST/ { print $2}' $PROJECT/.env)
 
-docker-compose exec $HOST /usr/bin/mysqldump --skip-comments -u$USR --password=$PWD $DATABASE > $PROJECT/storage/database/dump/database.sql 2>/dev/null
-sed '1d' $PROJECT/storage/database/dump/database.sql > $PROJECT/storage/database/dump/database.sql
+docker-compose exec $HOST /usr/bin/mysqldump --skip-comments -u$USR --password=$PWD $DATABASE | tail -n +2 > $PROJECT/storage/database/dump/database.sql 2>/dev/null

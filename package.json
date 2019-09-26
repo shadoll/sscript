@@ -12,7 +12,6 @@
     "url": "https://github.com/shadoll/sscript/issues"
   },
   "bin": {
-    "hello.sh": "./scripts/hello.sh",
     "hello.js": "./scripts/hello.js",
     "git.storage_push": "./scripts/git/storage_push.sh",
     "git.submodule_pull": "./scripts/git/submodule_pull.sh",
