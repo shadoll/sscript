@@ -3,7 +3,7 @@
 # @package   sscripts
 # @author    sHa <sha@shadoll.dev>
 # @copyright 2019 shadoll
-# @version   19.6.7
+# @version   19.9.26
 # @link      https://shadoll.dev
 #
 
@@ -16,4 +16,7 @@ if [ ! -f $PROJECT/docker-compose.yml ]; then
 fi
 
 cd $PROJECT
-docker-compose exec db mysql "$@"
+
+HOST=$(awk -F'=' '/^DB_HOST/ { print $2}' $PROJECT/.env)
+
+docker-compose exec $HOST mysql "$@"
